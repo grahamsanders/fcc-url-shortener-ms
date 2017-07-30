@@ -1,0 +1,25 @@
+{
+  "name": "fcc-url-shortener-ms",
+  "version": "1.0.0",
+  "description": "freeCodeCamp url shortener project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grahamsanders/fcc-url-shortener-ms.git"
+  },
+  "keywords": [
+    "freecodecamp"
+  ],
+  "author": "Graham Sanders",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grahamsanders/fcc-url-shortener-ms/issues"
+  },
+  "homepage": "https://github.com/grahamsanders/fcc-url-shortener-ms#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}

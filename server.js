@@ -84,7 +84,7 @@ app.get('/:shortid', function(request, response) {
 // Respond not found to all the wrong routes
 app.use(function(request, response, next){
   response.status(404);
-  response.type('txt').send('Not found');
+  response.type('txt').send('freeCodeCamp URL Shortener microservice');
 });
 
 // Error Middleware

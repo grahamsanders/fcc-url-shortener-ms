@@ -8,6 +8,7 @@ const DATABASE_URI = 'mongodb://user:' + process.env.MONGOPASS + '@ds147872.mlab
 const DATABASE_COLLECTION = 'fcc-url-shortener-ms';
 
 const app = express();
+app.enable('trust proxy');
 
 let db;
 
@@ -52,7 +53,7 @@ app.get('/new/:url(*)', function(request, response) {
         response.status(200);
         response.send({
           "original_url": newUrl,
-          "short_url": request.get('host') + '/' + entry,
+          "short_url": request.protocol + "://" + request.get('host') + '/' + entry,
         });
       }
     });
@@ -66,7 +67,6 @@ app.get('/:shortid', function(request, response) {
   let shortId = request.params.shortid;
   if (validator.isNumeric(shortId)) {
     let urlCollection = db.collection(DATABASE_COLLECTION);
-    console.log(shortId);
     urlCollection.findOne( { "short_url" : Number(shortId) }, function(error, document) {
       if (document) {
         response.redirect(document["original_url"]);
